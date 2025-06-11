@@ -14,7 +14,7 @@ const RelatedContent = ({ currentResourceId, category, className }) => {
       category: 'guide',
       description: 'Cut through the AI hype with our proven framework.',
       icon: Brain,
-      link: '/resources/ai-innovation-framework',
+      link: '/insights/ai-innovation-framework',
       tags: ['AI', 'Innovation', 'Strategy'],
       color: 'from-purple-500 to-pink-500'
     },
@@ -24,7 +24,7 @@ const RelatedContent = ({ currentResourceId, category, className }) => {
       category: 'whitepaper',
       description: 'Navigate HITRUST AI certification to gain market confidence.',
       icon: Shield,
-      link: '/resources/hitrust-ai-security',
+      link: '/insights/hitrust-ai-security',
       tags: ['Security', 'AI', 'Compliance'],
       color: 'from-blue-500 to-cyan-500'
     },
@@ -34,7 +34,7 @@ const RelatedContent = ({ currentResourceId, category, className }) => {
       category: 'case-study',
       description: 'How our AI-powered solution identified significant savings.',
       icon: TrendingUp,
-      link: '/resources/payment-integrity-case-study',
+      link: '/insights/payment-integrity-case-study',
       tags: ['Healthcare', 'Cost Savings', 'AI'],
       color: 'from-green-500 to-emerald-500'
     },
@@ -44,7 +44,7 @@ const RelatedContent = ({ currentResourceId, category, className }) => {
       category: 'guide',
       description: 'Foundational capabilities for sustainable business value.',
       icon: FileText,
-      link: '/resources/strategic-enablement',
+      link: '/insights/strategic-enablement',
       tags: ['Strategy', 'Data', 'Analytics'],
       color: 'from-orange-500 to-red-500'
     },
@@ -54,7 +54,7 @@ const RelatedContent = ({ currentResourceId, category, className }) => {
       category: 'solution',
       description: 'Create an actionable AI strategy for sustainable value.',
       icon: Brain,
-      link: '/resources/ai-strategy-offering',
+      link: '/insights/ai-strategy-offering',
       tags: ['AI', 'Strategy', 'Implementation'],
       color: 'from-amber-500 to-orange-500'
     },
@@ -64,7 +64,7 @@ const RelatedContent = ({ currentResourceId, category, className }) => {
       category: 'solution',
       description: 'AI-powered program that detects improper payments.',
       icon: Shield,
-      link: '/resources/payment-integrity-solution',
+      link: '/insights/payment-integrity-solution',
       tags: ['Healthcare', 'Payment Integrity', 'AI'],
       color: 'from-teal-500 to-green-500'
     },
@@ -74,7 +74,7 @@ const RelatedContent = ({ currentResourceId, category, className }) => {
       category: 'whitepaper',
       description: 'How AI revolutionizes payment integrity.',
       icon: TrendingUp,
-      link: '/resources/payment-integrity-perspective',
+      link: '/insights/payment-integrity-perspective',
       tags: ['Payment Integrity', 'AI', 'Healthcare'],
       color: 'from-indigo-500 to-purple-500'
     },
@@ -84,7 +84,7 @@ const RelatedContent = ({ currentResourceId, category, className }) => {
       category: 'case-study',
       description: 'Uncovering $50M healthcare fraud ring.',
       icon: Shield,
-      link: '/resources/fraud-discovery-case-study',
+      link: '/insights/fraud-discovery-case-study',
       tags: ['Fraud', 'Healthcare', 'Case Study'],
       color: 'from-red-500 to-orange-500'
     },
@@ -94,7 +94,7 @@ const RelatedContent = ({ currentResourceId, category, className }) => {
       category: 'whitepaper',
       description: 'Implementing ethical AI systems.',
       icon: Shield,
-      link: '/resources/secure-auditable-ai',
+      link: '/insights/secure-auditable-ai',
       tags: ['Security', 'AI', 'Compliance', 'Ethics'],
       color: 'from-green-500 to-teal-500'
     }

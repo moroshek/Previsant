@@ -13,14 +13,14 @@ const Navigation = () => {
   const { isVisible, isSticky } = useSmartSticky()
 
   // For resource pages, link back to homepage sections
-  const isResourcePage = location.pathname.includes('/resources/')
+  const isResourcePage = location.pathname.includes('/insights/')
   
   const navItems = [
-    { name: 'About', href: isResourcePage ? '/#about' : '#about' },
-    { name: 'Services', href: isResourcePage ? '/#services' : '#services' },
-    { name: 'Solutions', href: '/solutions' },
+    { name: 'About', href: '/#about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Industries', href: '/industries' },
     { name: 'Insights', href: '/insights' },
-    { name: 'Contact', href: isResourcePage ? '/#contact' : '#contact' }
+    { name: 'Contact', href: '/#contact' }
   ]
 
   useEffect(() => {
@@ -89,48 +89,57 @@ const Navigation = () => {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
               {navItems.map((item, index) => {
-                const isHashLink = item.href.startsWith('#')
-                const isExternalRoute = item.href.startsWith('/')
+                const isAnchorLink = item.href.includes('#')
+                const isCurrentPage = location.pathname === item.href
                 
-                if (isExternalRoute && !item.href.includes('#')) {
+                if (isAnchorLink) {
+                  // For anchor links (About, Contact)
                   return (
-                    <motion.div
+                    <motion.a
                       key={item.name}
+                      href={item.href}
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.05 }}
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                        location.pathname === '/' && activeSection === `#${item.href.split('#')[1]}`
+                          ? "text-primary bg-primary/10"
+                          : "text-gray-700 hover:text-primary hover:bg-gray-50"
+                      )}
+                      onClick={(e) => {
+                        // If not on homepage, navigate to homepage first
+                        if (location.pathname !== '/') {
+                          e.preventDefault()
+                          window.location.href = item.href
+                        }
+                      }}
                     >
-                      <Link
-                        to={item.href}
-                        className={cn(
-                          "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 block",
-                          location.pathname === item.href
-                            ? "text-primary bg-primary/10"
-                            : "text-gray-700 hover:text-primary hover:bg-gray-50"
-                        )}
-                      >
-                        {item.name}
-                      </Link>
-                    </motion.div>
+                      {item.name}
+                    </motion.a>
                   )
                 }
                 
+                // For regular routes (Services, Industries, Insights)
                 return (
-                  <motion.a
+                  <motion.div
                     key={item.name}
-                    href={item.href}
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
-                    className={cn(
-                      "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
-                      activeSection === item.href
-                      ? "text-primary bg-primary/10"
-                      : "text-gray-700 hover:text-primary hover:bg-gray-50"
-                    )}
                   >
-                    {item.name}
-                  </motion.a>
+                    <Link
+                      to={item.href}
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 block",
+                        isCurrentPage
+                          ? "text-primary bg-primary/10"
+                          : "text-gray-700 hover:text-primary hover:bg-gray-50"
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
                 )
               })}
               <motion.div
@@ -141,7 +150,13 @@ const Navigation = () => {
               >
                 <Button 
                   className="bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 shadow-md hover:shadow-lg transition-all duration-300"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    if (location.pathname !== '/') {
+                      window.location.href = '/#contact'
+                    } else {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }}
                 >
                   Get a Consultation
                   <ChevronRight className="ml-1 h-4 w-4" />
@@ -225,51 +240,61 @@ const Navigation = () => {
                 {/* Navigation Items */}
                 <nav className="space-y-2">
                   {navItems.map((item, index) => {
-                    const isExternalRoute = item.href.startsWith('/') && !item.href.includes('#')
+                    const isAnchorLink = item.href.includes('#')
+                    const isCurrentPage = location.pathname === item.href
                     
-                    if (isExternalRoute) {
+                    if (isAnchorLink) {
+                      // For anchor links (About, Contact)
                       return (
-                        <motion.div
+                        <motion.a
                           key={item.name}
+                          href={item.href}
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.05 }}
+                          className={cn(
+                            "flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200",
+                            location.pathname === '/' && activeSection === `#${item.href.split('#')[1]}`
+                              ? "bg-primary/10 text-primary"
+                              : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                          )}
+                          onClick={(e) => {
+                            setIsOpen(false)
+                            // If not on homepage, navigate to homepage first
+                            if (location.pathname !== '/') {
+                              e.preventDefault()
+                              window.location.href = item.href
+                            }
+                          }}
                         >
-                          <Link
-                            to={item.href}
-                            className={cn(
-                              "flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200",
-                              location.pathname === item.href
-                                ? "bg-primary/10 text-primary"
-                                : "text-gray-700 hover:bg-gray-50 hover:text-primary"
-                            )}
-                            onClick={() => setIsOpen(false)}
-                          >
-                            <span className="font-medium">{item.name}</span>
-                            <ChevronRight className="h-4 w-4 opacity-50" />
-                          </Link>
-                        </motion.div>
+                          <span className="font-medium">{item.name}</span>
+                          <ChevronRight className="h-4 w-4 opacity-50" />
+                        </motion.a>
                       )
                     }
                     
+                    // For regular routes (Services, Industries, Insights)
                     return (
-                      <motion.a
+                      <motion.div
                         key={item.name}
-                        href={item.href}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className={cn(
-                          "flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200",
-                          activeSection === item.href
-                            ? "bg-primary/10 text-primary"
-                            : "text-gray-700 hover:bg-gray-50 hover:text-primary"
-                        )}
-                        onClick={() => setIsOpen(false)}
                       >
-                        <span className="font-medium">{item.name}</span>
-                        <ChevronRight className="h-4 w-4 opacity-50" />
-                      </motion.a>
+                        <Link
+                          to={item.href}
+                          className={cn(
+                            "flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200",
+                            isCurrentPage
+                              ? "bg-primary/10 text-primary"
+                              : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                          )}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <span className="font-medium">{item.name}</span>
+                          <ChevronRight className="h-4 w-4 opacity-50" />
+                        </Link>
+                      </motion.div>
                     )
                   })}
                 </nav>
@@ -285,7 +310,11 @@ const Navigation = () => {
                     className="w-full py-4 text-base bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 shadow-lg"
                     onClick={() => {
                       setIsOpen(false)
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                      if (location.pathname !== '/') {
+                        window.location.href = '/#contact'
+                      } else {
+                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                      }
                     }}
                   >
                     Get a Consultation

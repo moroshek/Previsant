@@ -35,8 +35,8 @@ const ResourceDetailTemplate = ({
   }
   
   const breadcrumbItems = [
-    { label: 'Resources', href: '/#resources' },
-    { label: category.charAt(0).toUpperCase() + category.slice(1), href: `/#resources?category=${category}` },
+    { label: 'Insights', href: '/insights' },
+    { label: category.charAt(0).toUpperCase() + category.slice(1), href: `/insights?category=${category}` },
     { label: title }
   ]
   

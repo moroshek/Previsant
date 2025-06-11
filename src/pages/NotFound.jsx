@@ -88,16 +88,16 @@ const NotFound = () => {
                   About Us
                 </Link>
                 <Link 
-                  to="/#services" 
+                  to="/services" 
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
                   Services
                 </Link>
                 <Link 
-                  to="/#resources" 
+                  to="/insights" 
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
-                  Resources
+                  Insights
                 </Link>
                 <Link 
                   to="/#contact" 

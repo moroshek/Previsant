@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Shield, Linkedin, Twitter, Facebook, Mail } from 'lucide-react'
@@ -7,22 +8,22 @@ import { Shield, Linkedin, Twitter, Facebook, Mail } from 'lucide-react'
 const Footer = () => {
   const footerLinks = {
     services: [
-      { name: 'Data & Analytics Strategy', href: '#services' },
-      { name: 'Insights as a Service', href: '#services' },
-      { name: 'Industry Solutions', href: '#services' },
-      { name: 'Advisory & Mentoring', href: '#services' }
+      { name: 'Data & Analytics Strategy', href: '/services' },
+      { name: 'Insights as a Service', href: '/services' },
+      { name: 'Industry Solutions', href: '/industries' },
+      { name: 'Advisory & Mentoring', href: '/services' }
     ],
     industries: [
-      { name: 'Healthcare', href: '#industries' },
-      { name: 'Insurance', href: '#industries' },
-      { name: 'Financial Services', href: '#industries' },
-      { name: 'Case Studies', href: '#testimonials' }
+      { name: 'Healthcare', href: '/industries' },
+      { name: 'Insurance', href: '/industries' },
+      { name: 'Financial Services', href: '/industries' },
+      { name: 'Case Studies', href: '/insights' }
     ],
     resources: [
-      { name: 'Insights Blog', href: '#' },
-      { name: 'Whitepapers', href: '#' },
-      { name: 'Industry Reports', href: '#' },
-      { name: 'Platform Overview', href: '#' }
+      { name: 'Insights Blog', href: '/insights' },
+      { name: 'Whitepapers', href: '/insights' },
+      { name: 'Industry Reports', href: '/insights' },
+      { name: 'Platform Overview', href: '/services' }
     ]
   }
 
@@ -78,12 +79,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -99,12 +100,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.industries.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -120,12 +121,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

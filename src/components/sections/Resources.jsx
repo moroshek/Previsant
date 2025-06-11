@@ -17,7 +17,7 @@ const Resources = () => {
       icon: Brain,
       readTime: '15 min read',
       highlights: ['Five AI Innovation Imperatives', 'Previsant AI Framework', '4-6 week POC methodology'],
-      link: '/resources/ai-innovation-framework',
+      link: '/insights/ai-innovation-framework',
       color: 'from-purple-500 to-pink-500',
       featured: true
     },
@@ -29,7 +29,7 @@ const Resources = () => {
       icon: Shield,
       readTime: '5 min read',
       highlights: ['90 new AI controls', 'Three levels of compliance', 'Evidence repository'],
-      link: '/resources/hitrust-ai-security',
+      link: '/insights/hitrust-ai-security',
       color: 'from-blue-500 to-cyan-500'
     },
     {
@@ -40,7 +40,7 @@ const Resources = () => {
       icon: DollarSign,
       readTime: '8 min read',
       highlights: ['$20M+ direct benefit', '$100M at scale', '5-6% cost reduction'],
-      link: '/resources/payment-integrity-case-study',
+      link: '/insights/payment-integrity-case-study',
       color: 'from-green-500 to-emerald-500',
       featured: true
     },
@@ -52,7 +52,7 @@ const Resources = () => {
       icon: Settings,
       readTime: '12 min read',
       highlights: ['Operating Model', 'Data Governance', 'Talent Strategy', 'Architecture'],
-      link: '/resources/strategic-enablement',
+      link: '/insights/strategic-enablement',
       color: 'from-orange-500 to-red-500'
     },
     {
@@ -63,7 +63,7 @@ const Resources = () => {
       icon: Activity,
       readTime: '8 min read',
       highlights: ['$550M opportunity', '83.5% medical necessity', 'Provider identification'],
-      link: '/resources/medicare-payment-blog',
+      link: '/insights/medicare-payment-blog',
       color: 'from-indigo-500 to-purple-500'
     },
     {
@@ -74,7 +74,7 @@ const Resources = () => {
       icon: Rocket,
       readTime: '10 min read',
       highlights: ['Vision & Discovery', 'Readiness Assessment', 'Proof of Value Pilot'],
-      link: '/resources/ai-strategy-offering',
+      link: '/insights/ai-strategy-offering',
       color: 'from-amber-500 to-orange-500'
     },
     {
@@ -85,7 +85,7 @@ const Resources = () => {
       icon: Shield,
       readTime: '7 min read',
       highlights: ['7.46% opportunity', 'Holistic approach', 'Proven $100MM+ savings'],
-      link: '/resources/payment-integrity-solution',
+      link: '/insights/payment-integrity-solution',
       color: 'from-teal-500 to-green-500'
     },
     {
@@ -96,7 +96,7 @@ const Resources = () => {
       icon: TrendingUp,
       readTime: '12 min read',
       highlights: ['7.46% detection rate', '73% fewer false positives', '$1B+ validated savings'],
-      link: '/resources/payment-integrity-perspective',
+      link: '/insights/payment-integrity-perspective',
       color: 'from-indigo-500 to-purple-500',
       featured: true
     },
@@ -108,7 +108,7 @@ const Resources = () => {
       icon: AlertTriangle,
       readTime: '10 min read',
       highlights: ['$50M fraud uncovered', '127 providers involved', '98% conviction rate'],
-      link: '/resources/fraud-discovery-case-study',
+      link: '/insights/fraud-discovery-case-study',
       color: 'from-red-500 to-orange-500'
     },
     {
@@ -119,7 +119,7 @@ const Resources = () => {
       icon: Shield,
       readTime: '15 min read',
       highlights: ['HITRUST AI framework', '90 security controls', 'Complete audit trails'],
-      link: '/resources/secure-auditable-ai',
+      link: '/insights/secure-auditable-ai',
       color: 'from-green-500 to-teal-500'
     }
   ]
@@ -138,7 +138,7 @@ const Resources = () => {
     : resources.filter(r => r.category === selectedCategory)
 
   return (
-    <section id="resources" className="section-padding relative overflow-hidden">
+    <section id="insights" className="section-padding relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 rounded-full blur-3xl" />
