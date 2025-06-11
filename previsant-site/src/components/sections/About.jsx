@@ -197,6 +197,152 @@ const About = () => {
             </div>
           </motion.div>
 
+          {/* Leadership Team */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-24"
+          >
+            <div className="text-center mb-16">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Our Leadership Team
+              </h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Experienced leaders driving data & analytics transformation across industries
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+              {/* Doug Ramsey - Founder & CEO */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="group"
+              >
+                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                  <CardContent className="p-8">
+                    <div className="mb-6">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white text-2xl font-bold mb-4">
+                        DR
+                      </div>
+                      <h4 className="text-2xl font-bold text-gray-900 mb-2">Doug Ramsey</h4>
+                      <p className="text-lg font-semibold text-primary mb-4">Founder & CEO</p>
+                      <div className="space-y-3 text-gray-600 leading-relaxed">
+                        <p>
+                          <span className="font-semibold text-gray-800">30+ years</span> of experience in the data & analytics space across multiple sectors in both Client and Consulting senior leadership roles.
+                        </p>
+                        <p>
+                          Has driven multiple transformational initiatives across industry sectors, with a focus on leveraging data & analytics to help drive change and differentiation from <span className="font-semibold text-gray-800">"vision to value"</span>.
+                        </p>
+                        <p>
+                          Leading firms in Financial Services, Health Care, Bio Research, Technology, Environmental Services and Transportation sectors.
+                        </p>
+                      </div>
+                      <div className="mt-4">
+                        <a href="https://www.linkedin.com/in/doug-ramsey-3874291/" target="_blank" rel="noopener noreferrer" 
+                           className="inline-flex items-center gap-2 text-primary hover:text-blue-600 transition-colors">
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                          </svg>
+                          LinkedIn Profile
+                        </a>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* Other Team Members - Condensed */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="space-y-6"
+              >
+                {/* Janna Hart */}
+                <Card className="border-0 shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
+                        JH
+                      </div>
+                      <div>
+                        <h5 className="text-xl font-bold text-gray-900">Janna Hart</h5>
+                        <p className="text-primary font-semibold">Founding Partner</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 text-sm">
+                      15+ years in analytics and data science with transformational AI-driven solutions around internal audit, payment integrity and operational efficiency. 
+                      <span className="font-semibold text-gray-800"> $40M+ year over year value delivery</span>.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Brian Ng */}
+                <Card className="border-0 shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white font-bold">
+                        BN
+                      </div>
+                      <div>
+                        <h5 className="text-xl font-bold text-gray-900">Brian Ng</h5>
+                        <p className="text-primary font-semibold">Founding Partner</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 text-sm">
+                      25+ years in data & AI with Fortune 500 companies. Former Global Director at Hewlett-Packard Enterprise and 
+                      Retail Data & AI practice leader for Accenture Canada.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Neville Moses */}
+                <Card className="border-0 shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-bold">
+                        NM
+                      </div>
+                      <div>
+                        <h5 className="text-xl font-bold text-gray-900">Neville Moses</h5>
+                        <p className="text-primary font-semibold">Co-Founder & Principal</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 text-sm">
+                      Technology entrepreneur and digital venture builder. Co-founder of RaisinBread, disrupting commercial insurance marketplace. 
+                      12 years at Cap Gemini Ernst & Young and Thoughtworks.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Satya Sachdeva */}
+                <Card className="border-0 shadow-md hover:shadow-lg transition-shadow duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 mb-3">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold">
+                        SS
+                      </div>
+                      <div>
+                        <h5 className="text-xl font-bold text-gray-900">Satya Sachdeva</h5>
+                        <p className="text-primary font-semibold">Founding Partner</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 text-sm">
+                      25+ years developing innovative solutions using AI, Data, and Analytics across various verticals. 
+                      Empowering Fortune 500 companies to enhance customer experience and drive digital innovation.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+          </motion.div>
+
           {/* CTA Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

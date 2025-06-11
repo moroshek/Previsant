@@ -26,7 +26,7 @@ import FraudDiscoveryCaseStudy from './pages/resources/FraudDiscoveryCaseStudy'
 import SecureAuditableAI from './pages/resources/SecureAuditableAI'
 import NotFound from './pages/NotFound'
 
-// Home page component
+// Home page component - Simplified
 const HomePage = () => {
   useEffect(() => {
     // Smooth scrolling for anchor links
@@ -66,11 +66,40 @@ const HomePage = () => {
         <Hero />
         <About />
         <Services />
+        <Contact />
+      </main>
+    </>
+  )
+}
+
+// Full Solutions page component
+const SolutionsPage = () => {
+  return (
+    <>
+      <ProgressIndicator />
+      <main className="pt-20">
+        <div className="container mx-auto px-4 py-12">
+          <h1 className="text-4xl font-bold text-center mb-8">Our Solutions</h1>
+        </div>
+        <Services />
         <Industries />
         <Testimonials />
+      </main>
+    </>
+  )
+}
+
+// Insights page component  
+const InsightsPage = () => {
+  return (
+    <>
+      <ProgressIndicator />
+      <main className="pt-20">
+        <div className="container mx-auto px-4 py-12">
+          <h1 className="text-4xl font-bold text-center mb-8">Insights & Resources</h1>
+        </div>
         <Resources />
         <Blog />
-        <Contact />
       </main>
     </>
   )
@@ -85,6 +114,20 @@ function App() {
           <>
             <Navigation />
             <HomePage />
+            <Footer />
+          </>
+        } />
+        <Route path="/solutions" element={
+          <>
+            <Navigation />
+            <SolutionsPage />
+            <Footer />
+          </>
+        } />
+        <Route path="/insights" element={
+          <>
+            <Navigation />
+            <InsightsPage />
             <Footer />
           </>
         } />

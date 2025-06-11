@@ -14,7 +14,7 @@ const Blog = () => {
       date: 'January 15, 2025',
       readTime: '5 min read',
       category: 'Payment Integrity',
-      image: '/api/placeholder/600/400',
+      image: '/og-image.svg',
       icon: <Shield className="w-6 h-6 text-green-600" />
     },
     {
@@ -25,7 +25,7 @@ const Blog = () => {
       date: 'January 10, 2025',
       readTime: '7 min read',
       category: 'Data & Analytics',
-      image: '/api/placeholder/600/400',
+      image: '/og-image.svg',
       icon: <TrendingUp className="w-6 h-6 text-primary" />
     },
     {
@@ -36,7 +36,7 @@ const Blog = () => {
       date: 'January 5, 2025',
       readTime: '10 min read',
       category: 'AI Strategy',
-      image: '/api/placeholder/600/400',
+      image: '/og-image.svg',
       icon: <Brain className="w-6 h-6 text-purple-600" />
     }
   ]

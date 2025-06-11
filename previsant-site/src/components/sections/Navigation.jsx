@@ -17,9 +17,8 @@ const Navigation = () => {
   const navItems = [
     { name: 'About', href: isResourcePage ? '/#about' : '#about' },
     { name: 'Services', href: isResourcePage ? '/#services' : '#services' },
-    { name: 'Industries', href: isResourcePage ? '/#industries' : '#industries' },
-    { name: 'Resources', href: isResourcePage ? '/#resources' : '#resources' },
-    { name: 'Insights', href: isResourcePage ? '/#blog' : '#blog' },
+    { name: 'Solutions', href: '/solutions' },
+    { name: 'Insights', href: '/insights' },
     { name: 'Contact', href: isResourcePage ? '/#contact' : '#contact' }
   ]
 
@@ -77,9 +76,13 @@ const Navigation = () => {
             >
               <Link 
                 to="/" 
-                className="text-2xl md:text-3xl font-bold gradient-text"
+                className="flex items-center"
               >
-                Previsant
+                <img 
+                  src="/logo.svg" 
+                  alt="Previsάnt Insights Logo" 
+                  className="h-8 md:h-10 w-auto"
+                />
               </Link>
             </motion.div>
 
@@ -176,7 +179,11 @@ const Navigation = () => {
               <div className="p-6">
                 {/* Close Button */}
                 <div className="flex justify-between items-center mb-8">
-                  <span className="text-2xl font-bold gradient-text">Previsant</span>
+                  <img 
+                    src="/logo.svg" 
+                    alt="Previsάnt Insights Logo" 
+                    className="h-8 w-auto"
+                  />
                   <button
                     onClick={() => setIsOpen(false)}
                     className="p-2 rounded-lg hover:bg-gray-100 transition-colors"

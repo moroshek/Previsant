@@ -1,0 +1,27 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#003A96;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066CC;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Company Icon -->
+  <circle cx="20" cy="20" r="15" fill="url(#logoGradient)" opacity="0.1"/>
+  <circle cx="20" cy="20" r="10" fill="url(#logoGradient)" opacity="0.2"/>
+  <circle cx="20" cy="20" r="5" fill="url(#logoGradient)"/>
+  
+  <!-- Data visualization elements -->
+  <rect x="16" y="12" width="1.5" height="16" fill="white" opacity="0.8"/>
+  <rect x="18.5" y="8" width="1.5" height="20" fill="white" opacity="0.9"/>
+  <rect x="21" y="14" width="1.5" height="14" fill="white" opacity="0.8"/>
+  <rect x="23.5" y="10" width="1.5" height="18" fill="white" opacity="0.9"/>
+  
+  <!-- Company Name -->
+  <text x="44" y="17" font-family="Raleway, sans-serif" font-size="14" font-weight="700" fill="#003A96">
+    Previs<tspan font-weight="800">ά</tspan>nt
+  </text>
+  <text x="44" y="30" font-family="Raleway, sans-serif" font-size="8" font-weight="500" fill="#666" letter-spacing="0.5px">
+    INSIGHTS
+  </text>
+</svg>

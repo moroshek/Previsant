@@ -63,7 +63,7 @@ export const addOrganizationSchema = () => {
     logo: 'https://previsant.com/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-XXX-XXX-XXXX',
+      telephone: '+1-855-PREVISANT',
       contactType: 'customer service',
       areaServed: 'US',
       availableLanguage: 'English'
