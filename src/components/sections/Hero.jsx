@@ -112,6 +112,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="text-lg px-8 py-6 hover-lift bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 shadow-lg"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get a Consultation
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -120,6 +121,7 @@ const Hero = () => {
               size="lg" 
               variant="outline" 
               className="text-lg px-8 py-6 hover-lift border-2 hover:bg-gray-50"
+              onClick={() => window.location.href = '/solutions'}
             >
               Explore Our Solutions
             </Button>
@@ -148,29 +150,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.a
-          href="#about"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 text-gray-500 hover:text-primary transition-colors"
-        >
-          <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
-          <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center p-1">
-            <motion.div 
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1 h-2 bg-current rounded-full"
-            />
-          </div>
-        </motion.a>
-      </motion.div>
     </section>
   )
 }

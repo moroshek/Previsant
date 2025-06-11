@@ -400,6 +400,7 @@ const About = () => {
                     size="lg" 
                     variant="secondary"
                     className="px-8 py-6 text-lg shadow-lg hover:shadow-xl hover-lift"
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     Start Your Journey
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -408,6 +409,7 @@ const About = () => {
                     size="lg" 
                     variant="outline"
                     className="px-8 py-6 text-lg bg-white/10 border-white hover:bg-white/20 text-white hover-lift"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   >
                     Learn More About Us
                   </Button>

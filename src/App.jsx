@@ -6,7 +6,6 @@ import About from './components/sections/About'
 import Services from './components/sections/Services'
 import Contact from './components/sections/Contact'
 import Footer from './components/sections/Footer'
-import ProgressIndicator from './components/ui/progress-indicator'
 import ScrollToTop from './components/ui/scroll-to-top'
 import LoadingSpinner from './components/ui/loading-spinner'
 
@@ -51,64 +50,57 @@ const HomePage = () => {
     }
 
     // Add event listeners to all anchor links
-    document.addEventListener('click', (e) => {
+    const clickHandler = (e) => {
       if (e.target.tagName === 'A') {
         handleAnchorClick(e)
       }
-    })
+    }
+    
+    document.addEventListener('click', clickHandler)
 
     return () => {
-      document.removeEventListener('click', handleAnchorClick)
+      document.removeEventListener('click', clickHandler)
     }
   }, [])
 
   return (
-    <>
-      <ProgressIndicator />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Contact />
-      </main>
-    </>
+    <main>
+      <Hero />
+      <About />
+      <Services />
+      <Contact />
+    </main>
   )
 }
 
 // Full Solutions page component
 const SolutionsPage = () => {
   return (
-    <>
-      <ProgressIndicator />
-      <main className="pt-20">
-        <div className="container mx-auto px-4 py-12">
-          <h1 className="text-4xl font-bold text-center mb-8">Our Solutions</h1>
-        </div>
-        <Services />
-        <Suspense fallback={<LoadingSpinner />}>
-          <Industries />
-          <Testimonials />
-        </Suspense>
-      </main>
-    </>
+    <main className="pt-20">
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-bold text-center mb-8">Our Solutions</h1>
+      </div>
+      <Services />
+      <Suspense fallback={<LoadingSpinner />}>
+        <Industries />
+        <Testimonials />
+      </Suspense>
+    </main>
   )
 }
 
 // Insights page component  
 const InsightsPage = () => {
   return (
-    <>
-      <ProgressIndicator />
-      <main className="pt-20">
-        <div className="container mx-auto px-4 py-12">
-          <h1 className="text-4xl font-bold text-center mb-8">Insights & Resources</h1>
-        </div>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Resources />
-          <Blog />
-        </Suspense>
-      </main>
-    </>
+    <main className="pt-20">
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-bold text-center mb-8">Insights & Resources</h1>
+      </div>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Resources />
+        <Blog />
+      </Suspense>
+    </main>
   )
 }
 

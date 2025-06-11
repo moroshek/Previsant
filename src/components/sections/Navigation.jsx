@@ -88,23 +88,51 @@ const Navigation = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className={cn(
-                    "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
-                    activeSection === item.href
+              {navItems.map((item, index) => {
+                const isHashLink = item.href.startsWith('#')
+                const isExternalRoute = item.href.startsWith('/')
+                
+                if (isExternalRoute && !item.href.includes('#')) {
+                  return (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.05 }}
+                    >
+                      <Link
+                        to={item.href}
+                        className={cn(
+                          "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 block",
+                          location.pathname === item.href
+                            ? "text-primary bg-primary/10"
+                            : "text-gray-700 hover:text-primary hover:bg-gray-50"
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.div>
+                  )
+                }
+                
+                return (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    className={cn(
+                      "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                      activeSection === item.href
                       ? "text-primary bg-primary/10"
                       : "text-gray-700 hover:text-primary hover:bg-gray-50"
-                  )}
-                >
-                  {item.name}
-                </motion.a>
-              ))}
+                    )}
+                  >
+                    {item.name}
+                  </motion.a>
+                )
+              })}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -195,25 +223,54 @@ const Navigation = () => {
 
                 {/* Navigation Items */}
                 <nav className="space-y-2">
-                  {navItems.map((item, index) => (
-                    <motion.a
-                      key={item.name}
-                      href={item.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      className={cn(
-                        "flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200",
-                        activeSection === item.href
-                          ? "bg-primary/10 text-primary"
-                          : "text-gray-700 hover:bg-gray-50 hover:text-primary"
-                      )}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <span className="font-medium">{item.name}</span>
-                      <ChevronRight className="h-4 w-4 opacity-50" />
-                    </motion.a>
-                  ))}
+                  {navItems.map((item, index) => {
+                    const isExternalRoute = item.href.startsWith('/') && !item.href.includes('#')
+                    
+                    if (isExternalRoute) {
+                      return (
+                        <motion.div
+                          key={item.name}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                        >
+                          <Link
+                            to={item.href}
+                            className={cn(
+                              "flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200",
+                              location.pathname === item.href
+                                ? "bg-primary/10 text-primary"
+                                : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                            )}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            <span className="font-medium">{item.name}</span>
+                            <ChevronRight className="h-4 w-4 opacity-50" />
+                          </Link>
+                        </motion.div>
+                      )
+                    }
+                    
+                    return (
+                      <motion.a
+                        key={item.name}
+                        href={item.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        className={cn(
+                          "flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200",
+                          activeSection === item.href
+                            ? "bg-primary/10 text-primary"
+                            : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                        )}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <span className="font-medium">{item.name}</span>
+                        <ChevronRight className="h-4 w-4 opacity-50" />
+                      </motion.a>
+                    )
+                  })}
                 </nav>
 
                 {/* CTA Button */}
