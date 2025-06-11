@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunity Analysis | Intelligent Automation of Appraisal Review</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #3b82f6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 80px 0;
+            background: var(--gray-50);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--gray-900);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--danger);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .solution-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .flow-step {
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            border: 2px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .flow-step:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+        }
+
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--gray-300);
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .flow-step:not(:last-child)::after {
+                display: block;
+            }
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 80px 0;
+            background: var(--gray-50);
+        }
+
+        .benefit-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .comparison-column {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-column.current {
+            border: 2px solid var(--danger);
+        }
+
+        .comparison-column.future {
+            border: 2px solid var(--success);
+            position: relative;
+        }
+
+        .future::before {
+            content: 'With Previsant';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .comparison-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comparison-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .x-icon {
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        /* ROI Calculator */
+        .roi-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+
+        .roi-calculator {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .roi-metric {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--gray-50);
+            border-radius: 12px;
+        }
+
+        .roi-metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .roi-metric-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .roi-highlight {
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .roi-highlight h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roi-highlight .amount {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .benefit-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-step::after {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Workflow step hover effect */
+        .workflow-step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .tech-badge {
+            background: var(--gray-100);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">Opportunity Analysis: Appraisal Review Automation</h1>
+                <p class="hero-subtitle fade-in">Transforming manual processes into intelligent automation</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Time Reduction</span>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">$155K+</span>
+                        <span class="stat-label">Annual Savings</span>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">10x</span>
+                        <span class="stat-label">Capacity Increase</span>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <span class="stat-number">99.5%</span>
+                        <span class="stat-label">Accuracy Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title fade-in">The Current Challenge</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">⏱️</div>
+                    <h3>Time-Intensive Process</h3>
+                    <p>Each appraisal review takes 1.5 to 8 hours of manual work, creating significant bottlenecks in your workflow.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">💰</div>
+                    <h3>High Labor Costs</h3>
+                    <p>At $115/hour for contractors and 300 appraisals yearly, you're spending over $155,000 just on manual reviews.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">📊</div>
+                    <h3>Limited Scalability</h3>
+                    <p>Current manual process prevents you from reviewing additional appraisals, limiting business growth opportunities.</p>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 3rem; border-radius: 16px; margin-top: 3rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 1.75rem; margin-bottom: 2rem; text-align: center; color: var(--gray-900);">Current Manual Workflow</h3>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="display: grid; gap: 1rem;">
+                        <div class="workflow-step" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--danger); transition: all 0.3s ease;">
+                            <div style="flex-shrink: 0; width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">📄</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--gray-900); margin-bottom: 0.25rem;">Step 1: Document Receipt</div>
+                                <div style="color: var(--gray-600); font-size: 0.875rem;">External appraiser sends large PDF with pages of financial data</div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; color: var(--gray-400); font-size: 1.5rem;">↓</div>
+                        
+                        <div class="workflow-step" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--warning); transition: all 0.3s ease;">
+                            <div style="flex-shrink: 0; width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">👁️</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--gray-900); margin-bottom: 0.25rem;">Step 2: Manual Review</div>
+                                <div style="color: var(--gray-600); font-size: 0.875rem;">Contractor reviews each page individually (1.5-8 hours per document)</div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; color: var(--gray-400); font-size: 1.5rem;">↓</div>
+                        
+                        <div class="workflow-step" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--warning); transition: all 0.3s ease;">
+                            <div style="flex-shrink: 0; width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">📊</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--gray-900); margin-bottom: 0.25rem;">Step 3: Data Entry</div>
+                                <div style="color: var(--gray-600); font-size: 0.875rem;">Manual input into 10-tab Excel spreadsheet</div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; color: var(--gray-400); font-size: 1.5rem;">↓</div>
+                        
+                        <div class="workflow-step" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--warning); transition: all 0.3s ease;">
+                            <div style="flex-shrink: 0; width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">✍️</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--gray-900); margin-bottom: 0.25rem;">Step 4: Manual Grading</div>
+                                <div style="color: var(--gray-600); font-size: 0.875rem;">Assign S (Satisfactory), U (Unsatisfactory), or N (Not Applicable) ratings</div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; color: var(--gray-400); font-size: 1.5rem;">↓</div>
+                        
+                        <div class="workflow-step" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--gray-50); border-radius: 12px; border-left: 4px solid var(--primary); transition: all 0.3s ease;">
+                            <div style="flex-shrink: 0; width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">📈</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--gray-900); margin-bottom: 0.25rem;">Step 5: Excel Calculation</div>
+                                <div style="color: var(--gray-600); font-size: 0.875rem;">Spreadsheet formulas compute final appraisal grade</div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; color: var(--gray-400); font-size: 1.5rem;">↓</div>
+                        
+                        <div class="workflow-step" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--danger); border-radius: 12px; color: white;">
+                            <div style="flex-shrink: 0; width: 50px; height: 50px; background: white; color: var(--danger); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">🔁</div>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: 0.25rem;">Repeat 300+ Times Annually</div>
+                                <div style="font-size: 0.875rem; opacity: 0.9;">Total: 1,350+ hours • $155,250+ in labor costs</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suggested Partner Section -->
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Suggested Partner: Previsant</h2>
+            <p style="text-align: center; font-size: 1.25rem; margin-bottom: 3rem; color: var(--gray-600);">
+                A proven leader in financial services automation with the perfect skillset for this challenge
+            </p>
+            
+            <div class="problem-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon" style="background: var(--primary);">🏆</div>
+                    <h3>Industry Expertise</h3>
+                    <p>30+ years of experience in financial services automation and data analytics, with proven success in document processing and workflow automation.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <div class="problem-icon" style="background: var(--primary);">🔒</div>
+                    <h3>Bank-Grade Security</h3>
+                    <p>HITRUST certified, SOC2 compliant platform ensuring sensitive appraisal data is protected with enterprise-level security protocols.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <div class="problem-icon" style="background: var(--primary);">🚀</div>
+                    <h3>Rapid Implementation</h3>
+                    <p>Proven methodology for going live in weeks, not months, with minimal disruption to existing operations.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <div class="problem-icon" style="background: var(--primary);">🤖</div>
+                    <h3>AI & ML Capabilities</h3>
+                    <p>Deep expertise in machine learning, natural language processing, and intelligent document processing at scale.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <div class="problem-icon" style="background: var(--primary);">📊</div>
+                    <h3>Financial Services Focus</h3>
+                    <p>Specialized in banking and financial services, understanding regulatory requirements and compliance needs.</p>
+                </div>
+                
+                <div class="problem-card fade-in">
+                    <div class="problem-icon" style="background: var(--primary);">✅</div>
+                    <h3>Proven Results</h3>
+                    <p>Track record of delivering 90%+ efficiency gains and ROI within the first year of implementation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Before & After Comparison</h2>
+            
+            <div class="benefit-comparison">
+                <div class="comparison-column current fade-in">
+                    <h3 class="comparison-title">Current State</h3>
+                    <ul class="comparison-list">
+                        <li><span class="x-icon">✗</span> 1.5-8 hours per review</li>
+                        <li><span class="x-icon">✗</span> $115/hour contractor costs</li>
+                        <li><span class="x-icon">✗</span> Manual data entry errors</li>
+                        <li><span class="x-icon">✗</span> Limited to 300 reviews/year</li>
+                        <li><span class="x-icon">✗</span> Inconsistent grading</li>
+                        <li><span class="x-icon">✗</span> No audit trail</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-column future fade-in">
+                    <h3 class="comparison-title">Future State</h3>
+                    <ul class="comparison-list">
+                        <li><span class="check-icon">✓</span> 5-10 minutes per review</li>
+                        <li><span class="check-icon">✓</span> 90% cost reduction</li>
+                        <li><span class="check-icon">✓</span> 99.5% accuracy rate</li>
+                        <li><span class="check-icon">✓</span> Unlimited scalability</li>
+                        <li><span class="check-icon">✓</span> Consistent standards</li>
+                        <li><span class="check-icon">✓</span> Complete audit trail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section class="roi-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Your Return on Investment</h2>
+            
+            <div class="roi-calculator fade-in">
+                <div class="roi-grid">
+                    <div class="roi-metric">
+                        <span class="roi-metric-value">300</span>
+                        <span class="roi-metric-label">Annual Appraisals</span>
+                    </div>
+                    <div class="roi-metric">
+                        <span class="roi-metric-value">4.5 <small style="font-size: 0.6em;">hrs</small></span>
+                        <span class="roi-metric-label">Avg Time per Review</span>
+                    </div>
+                    <div class="roi-metric">
+                        <span class="roi-metric-value">$115</span>
+                        <span class="roi-metric-label">Hourly Rate</span>
+                    </div>
+                    <div class="roi-metric">
+                        <span class="roi-metric-value">1,350 hrs</span>
+                        <span class="roi-metric-label">Total Annual Hours</span>
+                    </div>
+                </div>
+                
+                <div class="roi-highlight">
+                    <h3>10-Year Net Present Value</h3>
+                    <div class="amount">$1.1 Million</div>
+                    <p style="margin-top: 1rem; opacity: 0.9;">Based on $150,000 annual savings at 5% discount rate<br>
+                    <small style="opacity: 0.8;">Plus opportunity value from processing unlimited appraisals</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Approach Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Proposed Solution Approach</h2>
+            <p style="text-align: center; font-size: 1.25rem; margin-bottom: 3rem; color: var(--gray-600);">
+                How intelligent automation would transform the appraisal review process
+            </p>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="problem-card fade-in" style="margin-bottom: 1.5rem;">
+                    <h3 style="display: flex; align-items: center; gap: 1rem; color: var(--primary);">
+                        <span style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</span>
+                        PDF Processing & OCR
+                    </h3>
+                    <p>Advanced document processing technology extracts all text, tables, and financial data from appraisal PDFs with exceptional accuracy, regardless of format or scan quality.</p>
+                </div>
+                
+                <div class="problem-card fade-in" style="margin-bottom: 1.5rem;">
+                    <h3 style="display: flex; align-items: center; gap: 1rem; color: var(--primary);">
+                        <span style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</span>
+                        Data Structuring
+                    </h3>
+                    <p>Parse and organize extracted data into structured formats, mapping appraisal elements to your evaluation criteria automatically.</p>
+                </div>
+                
+                <div class="problem-card fade-in" style="margin-bottom: 1.5rem;">
+                    <h3 style="display: flex; align-items: center; gap: 1rem; color: var(--primary);">
+                        <span style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</span>
+                        AI-Powered Business Logic
+                    </h3>
+                    <p>Train our AI to understand your specific business rules and grading criteria, learning from historical decisions to ensure consistent, accurate S/U/N classifications.</p>
+                </div>
+                
+                <div class="problem-card fade-in" style="margin-bottom: 1.5rem;">
+                    <h3 style="display: flex; align-items: center; gap: 1rem; color: var(--primary);">
+                        <span style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</span>
+                        Complete Audit Trail
+                    </h3>
+                    <p>Comprehensive logging of all decisions, data points, and rationale for full compliance visibility and quality assurance.</p>
+                </div>
+                
+                <div class="problem-card fade-in" style="background: var(--gray-50); border: 2px dashed var(--gray-300);">
+                    <h3 style="display: flex; align-items: center; gap: 1rem; color: var(--gray-600);">
+                        <span style="background: var(--gray-400); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">+</span>
+                        Optional: API Integration
+                    </h3>
+                    <p style="color: var(--gray-600);">Seamlessly connect to your existing banking systems for automated workflow integration (available but not required for initial implementation).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Next Steps Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title fade-in">Recommendation & Next Steps</h2>
+            <p class="cta-subtitle fade-in">
+                Based on this analysis, I recommend engaging Previsant to explore this automation opportunity
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; max-width: 800px; margin: 2rem auto;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Suggested Action Items:</h3>
+                <ul style="text-align: left; max-width: 600px; margin: 0 auto; line-height: 2; list-style: none;">
+                    <li style="margin-bottom: 0.5rem;">• Schedule initial discovery call with Previsant team</li>
+                    <li style="margin-bottom: 0.5rem;">• Sign NDA if needed</li>
+                    <li style="margin-bottom: 1rem;">• Discuss project, establish path forward</li>
+                    <li style="font-style: italic; color: rgba(255,255,255,0.9); margin-top: 1rem;">I am happy to facilitate the introduction and initial discussions.</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="font-size: 1.125rem; opacity: 0.9; margin-bottom: 1rem;">
+                    <strong>Previsant Contact Information:</strong>
+                </p>
+                <p style="opacity: 0.8;">
+                    Email: info@previsant.com | Web: www.previsant.com
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.875rem; opacity: 0.7;">
+                    This opportunity analysis prepared by: Jake Moroshek | BuildAI | 06/11/2025
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.1s';
+                    entry.target.style.animationFillMode = 'forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate numbers on scroll
+        function animateValue(element, start, end, duration, suffix = '') {
+            const range = end - start;
+            const increment = range / (duration / 16);
+            let current = start;
+            const isDecimal = end % 1 !== 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= end) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                if (isDecimal) {
+                    element.innerHTML = current.toFixed(1) + suffix;
+                } else {
+                    element.innerHTML = Math.floor(current).toLocaleString() + suffix;
+                }
+            }, 16);
+        }
+
+        // Trigger number animations when in view
+        const roiObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.animated) {
+                    entry.target.animated = true;
+                    const originalText = entry.target.innerHTML;
+                    const value = parseFloat(entry.target.textContent.replace(/[^0-9.]/g, ''));
+                    let suffix = '';
+                    
+                    // Check for units like hrs
+                    if (originalText.includes('hrs')) {
+                        suffix = ' <small style="font-size: 0.6em;">hrs</small>';
+                    } else if (originalText.includes('$')) {
+                        // For dollar values, prepend $
+                        animateValue(entry.target, 0, value, 1000, '');
+                        entry.target.innerHTML = '$' + entry.target.innerHTML;
+                        return;
+                    }
+                    
+                    animateValue(entry.target, 0, value, 1000, suffix);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.roi-metric-value').forEach(el => {
+            const value = parseFloat(el.textContent.replace(/[^0-9.]/g, ''));
+            if (!isNaN(value)) {
+                roiObserver.observe(el);
+            }
+        });
+    </script>
+</body>
+</html>
