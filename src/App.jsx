@@ -1,30 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/sections/Navigation'
 import Hero from './components/sections/Hero'
 import About from './components/sections/About'
 import Services from './components/sections/Services'
-import Industries from './components/sections/Industries'
-import Testimonials from './components/sections/Testimonials'
-import Resources from './components/sections/Resources'
-import Blog from './components/sections/Blog'
 import Contact from './components/sections/Contact'
 import Footer from './components/sections/Footer'
 import ProgressIndicator from './components/ui/progress-indicator'
 import ScrollToTop from './components/ui/scroll-to-top'
+import LoadingSpinner from './components/ui/loading-spinner'
 
-// Import resource pages
-import AIInnovationFramework from './pages/resources/AIInnovationFramework'
-import HITRUSTAISecurity from './pages/resources/HITRUSTAISecurity'
-import PaymentIntegrityCaseStudy from './pages/resources/PaymentIntegrityCaseStudy'
-import StrategicEnablement from './pages/resources/StrategicEnablement'
-import MedicarePaymentBlog from './pages/resources/MedicarePaymentBlog'
-import AIStrategyOffering from './pages/resources/AIStrategyOffering'
-import PaymentIntegritySolution from './pages/resources/PaymentIntegritySolution'
-import PaymentIntegrityPerspective from './pages/resources/PaymentIntegrityPerspective'
-import FraudDiscoveryCaseStudy from './pages/resources/FraudDiscoveryCaseStudy'
-import SecureAuditableAI from './pages/resources/SecureAuditableAI'
-import NotFound from './pages/NotFound'
+// Lazy load less critical components
+const Industries = lazy(() => import('./components/sections/Industries'))
+const Testimonials = lazy(() => import('./components/sections/Testimonials'))
+const Resources = lazy(() => import('./components/sections/Resources'))
+const Blog = lazy(() => import('./components/sections/Blog'))
+
+// Lazy load all resource pages
+const AIInnovationFramework = lazy(() => import('./pages/resources/AIInnovationFramework'))
+const HITRUSTAISecurity = lazy(() => import('./pages/resources/HITRUSTAISecurity'))
+const PaymentIntegrityCaseStudy = lazy(() => import('./pages/resources/PaymentIntegrityCaseStudy'))
+const StrategicEnablement = lazy(() => import('./pages/resources/StrategicEnablement'))
+const MedicarePaymentBlog = lazy(() => import('./pages/resources/MedicarePaymentBlog'))
+const AIStrategyOffering = lazy(() => import('./pages/resources/AIStrategyOffering'))
+const PaymentIntegritySolution = lazy(() => import('./pages/resources/PaymentIntegritySolution'))
+const PaymentIntegrityPerspective = lazy(() => import('./pages/resources/PaymentIntegrityPerspective'))
+const FraudDiscoveryCaseStudy = lazy(() => import('./pages/resources/FraudDiscoveryCaseStudy'))
+const SecureAuditableAI = lazy(() => import('./pages/resources/SecureAuditableAI'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 // Home page component - Simplified
 const HomePage = () => {
@@ -82,8 +85,10 @@ const SolutionsPage = () => {
           <h1 className="text-4xl font-bold text-center mb-8">Our Solutions</h1>
         </div>
         <Services />
-        <Industries />
-        <Testimonials />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Industries />
+          <Testimonials />
+        </Suspense>
       </main>
     </>
   )
@@ -98,8 +103,10 @@ const InsightsPage = () => {
         <div className="container mx-auto px-4 py-12">
           <h1 className="text-4xl font-bold text-center mb-8">Insights & Resources</h1>
         </div>
-        <Resources />
-        <Blog />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Resources />
+          <Blog />
+        </Suspense>
       </main>
     </>
   )
@@ -131,17 +138,17 @@ function App() {
             <Footer />
           </>
         } />
-        <Route path="/resources/ai-innovation-framework" element={<AIInnovationFramework />} />
-        <Route path="/resources/hitrust-ai-security" element={<HITRUSTAISecurity />} />
-        <Route path="/resources/payment-integrity-case-study" element={<PaymentIntegrityCaseStudy />} />
-        <Route path="/resources/strategic-enablement" element={<StrategicEnablement />} />
-        <Route path="/resources/medicare-payment-blog" element={<MedicarePaymentBlog />} />
-        <Route path="/resources/ai-strategy-offering" element={<AIStrategyOffering />} />
-        <Route path="/resources/payment-integrity-solution" element={<PaymentIntegritySolution />} />
-        <Route path="/resources/payment-integrity-perspective" element={<PaymentIntegrityPerspective />} />
-        <Route path="/resources/fraud-discovery-case-study" element={<FraudDiscoveryCaseStudy />} />
-        <Route path="/resources/secure-auditable-ai" element={<SecureAuditableAI />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/resources/ai-innovation-framework" element={<Suspense fallback={<LoadingSpinner />}><AIInnovationFramework /></Suspense>} />
+        <Route path="/resources/hitrust-ai-security" element={<Suspense fallback={<LoadingSpinner />}><HITRUSTAISecurity /></Suspense>} />
+        <Route path="/resources/payment-integrity-case-study" element={<Suspense fallback={<LoadingSpinner />}><PaymentIntegrityCaseStudy /></Suspense>} />
+        <Route path="/resources/strategic-enablement" element={<Suspense fallback={<LoadingSpinner />}><StrategicEnablement /></Suspense>} />
+        <Route path="/resources/medicare-payment-blog" element={<Suspense fallback={<LoadingSpinner />}><MedicarePaymentBlog /></Suspense>} />
+        <Route path="/resources/ai-strategy-offering" element={<Suspense fallback={<LoadingSpinner />}><AIStrategyOffering /></Suspense>} />
+        <Route path="/resources/payment-integrity-solution" element={<Suspense fallback={<LoadingSpinner />}><PaymentIntegritySolution /></Suspense>} />
+        <Route path="/resources/payment-integrity-perspective" element={<Suspense fallback={<LoadingSpinner />}><PaymentIntegrityPerspective /></Suspense>} />
+        <Route path="/resources/fraud-discovery-case-study" element={<Suspense fallback={<LoadingSpinner />}><FraudDiscoveryCaseStudy /></Suspense>} />
+        <Route path="/resources/secure-auditable-ai" element={<Suspense fallback={<LoadingSpinner />}><SecureAuditableAI /></Suspense>} />
+        <Route path="*" element={<Suspense fallback={<LoadingSpinner />}><NotFound /></Suspense>} />
       </Routes>
     </div>
   )
