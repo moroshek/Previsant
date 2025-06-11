@@ -1,14 +1,16 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Shield, CheckCircle } from 'lucide-react'
+import { ArrowRight, TrendingUp, CheckCircle, BarChart3 } from 'lucide-react'
 
 const Hero = () => {
   const features = [
-    'Risk Assessment & Mitigation',
-    'Compliance Program Development',
-    'Safety Training & Education'
+    'Data & Analytics Strategy',
+    'Insights as a Service Platform',
+    'Risk & Compliance Solutions'
   ]
+
+  const tagline = ['Strategy', 'Data', 'Insight', 'Action']
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-white overflow-hidden">
@@ -34,9 +36,26 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-6"
+            className="mb-8"
           >
-            <Shield className="w-16 h-16 mx-auto text-primary mb-4" />
+            <div className="flex items-center justify-center gap-4 mb-6">
+              {tagline.map((word, index) => (
+                <React.Fragment key={word}>
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="text-lg md:text-xl font-semibold text-gray-700"
+                  >
+                    {word}
+                  </motion.span>
+                  {index < tagline.length - 1 && (
+                    <span className="text-primary">|</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+            <BarChart3 className="w-16 h-16 mx-auto text-primary mb-4" />
           </motion.div>
 
           <motion.h1
@@ -45,8 +64,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
           >
-            Empowering Safer,
-            <span className="text-primary"> Compliant</span> Businesses
+            Enabling Data & Analytics
+            <span className="text-primary"> as a Differentiator</span>
           </motion.h1>
 
           <motion.p
@@ -55,8 +74,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto"
           >
-            Navigate complex regulations with confidence. Previsant delivers expert risk management, 
-            compliance solutions, and safety consulting to protect your business and empower growth.
+            From vision and strategy through innovation, enablement and ongoing mentoring. 
+            Our business outcome-driven approach accelerates time to value through advanced 
+            analytics, ML & AI solutions for Healthcare, Insurance and Financial Services.
           </motion.p>
 
           <motion.div

@@ -7,22 +7,22 @@ import { Shield, Linkedin, Twitter, Facebook, Mail } from 'lucide-react'
 const Footer = () => {
   const footerLinks = {
     services: [
-      { name: 'Risk Assessment', href: '#' },
-      { name: 'Compliance Programs', href: '#' },
-      { name: 'Safety Training', href: '#' },
-      { name: 'Advisory Services', href: '#' }
+      { name: 'Data & Analytics Strategy', href: '#services' },
+      { name: 'Insights as a Service', href: '#services' },
+      { name: 'Industry Solutions', href: '#services' },
+      { name: 'Advisory & Mentoring', href: '#services' }
     ],
-    company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Our Team', href: '#' },
-      { name: 'Case Studies', href: '#' },
-      { name: 'Careers', href: '#' }
+    industries: [
+      { name: 'Healthcare', href: '#industries' },
+      { name: 'Insurance', href: '#industries' },
+      { name: 'Financial Services', href: '#industries' },
+      { name: 'Case Studies', href: '#testimonials' }
     ],
     resources: [
-      { name: 'Blog', href: '#' },
+      { name: 'Insights Blog', href: '#' },
       { name: 'Whitepapers', href: '#' },
-      { name: 'Compliance Guides', href: '#' },
-      { name: 'FAQs', href: '#' }
+      { name: 'Industry Reports', href: '#' },
+      { name: 'Platform Overview', href: '#' }
     ]
   }
 
@@ -48,8 +48,8 @@ const Footer = () => {
               <span className="text-2xl font-bold">Previsant</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Your trusted partner in risk management, compliance, and safety consulting. 
-              Protecting businesses and empowering growth since 2010.
+              Your trusted partner in data & analytics transformation. 
+              Enabling organizations through their complete analytics journey from strategy to action.
             </p>
             <div className="space-y-3">
               <h4 className="text-sm font-semibold uppercase tracking-wider">
@@ -95,9 +95,9 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
+            <h4 className="text-lg font-semibold mb-4">Industries</h4>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
+              {footerLinks.industries.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
@@ -141,7 +141,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2025 Previsant. All rights reserved. | 
+              © 2023 Previsant LLC. All rights reserved. | 
               <a href="#" className="hover:text-white ml-2">Privacy Policy</a> | 
               <a href="#" className="hover:text-white ml-2">Terms of Service</a>
             </div>

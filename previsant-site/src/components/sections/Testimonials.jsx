@@ -9,28 +9,40 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      title: 'Chief Compliance Officer',
-      company: 'TechCorp Industries',
-      content: 'Previsant transformed our approach to compliance. Their comprehensive risk assessment helped us identify vulnerabilities we didn\'t know existed, saving us from potential regulatory penalties.',
+      name: 'Fortune 100 Insurance Company',
+      title: '$42B Insurance & Financial Services',
+      company: 'Multi-line Insurance Leader',
+      content: 'Previsant delivered a business-aligned roadmap and comprehensive business case for our data & analytics transformation. Their people, process & technology approach enabled sustainable ROI across our enterprise.',
       rating: 5,
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah'
+      metrics: ['$42B enterprise value', 'Sustainable ROI achieved', 'Enterprise-wide transformation'],
+      image: 'https://api.dicebear.com/7.x/shapes/svg?seed=Insurance'
     },
     {
-      name: 'Michael Chen',
-      title: 'VP of Operations',
-      company: 'Global Manufacturing Co.',
-      content: 'The safety training programs delivered by Previsant have dramatically reduced workplace incidents. Our team is more engaged and aware of safety protocols than ever before.',
+      name: 'Environmental Services Leader',
+      title: '$10B Environmental Services',
+      company: 'Global Environmental Corporation',
+      content: 'Strategic enablement for Customer 360, Knowledge Management and D&A ecosystem transformed our customer experience. Previsant enabled our complete digital transformation journey.',
       rating: 5,
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Michael'
+      metrics: ['$10B company scale', 'Customer 360 implementation', 'Digital transformation achieved'],
+      image: 'https://api.dicebear.com/7.x/shapes/svg?seed=Environmental'
     },
     {
-      name: 'Emily Rodriguez',
-      title: 'CEO',
-      company: 'Healthcare Solutions Inc.',
-      content: 'Working with Previsant\'s advisory team has been invaluable. Their expertise in healthcare compliance helped us navigate complex regulations while maintaining operational efficiency.',
+      name: 'Multi-line Insurance Innovator',
+      title: '$11B Multi-line Insurance',
+      company: 'Insurance Innovation Leader',
+      content: 'Previsant developed our strategic roadmap and enablement for B2B offerings, driving strategic growth and insights. Their approach unlocked new revenue streams and market opportunities.',
       rating: 5,
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emily'
+      metrics: ['$11B organization', 'B2B platform launch', 'Strategic growth enabled'],
+      image: 'https://api.dicebear.com/7.x/shapes/svg?seed=Multiline'
+    },
+    {
+      name: 'InsurTech Startup',
+      title: 'InsurTech Start-up',
+      company: 'Emerging Technology Company',
+      content: 'Definition and creation of differentiating predictive analytics capabilities as a service enabled our customer acquisition and product expansion. Previsant was instrumental in our growth.',
+      rating: 5,
+      metrics: ['Predictive analytics platform', 'Customer footprint expansion', 'Product differentiation achieved'],
+      image: 'https://api.dicebear.com/7.x/shapes/svg?seed=Startup'
     }
   ]
 
@@ -53,11 +65,11 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Client Success Stories
+            Our Work
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Hear from organizations that have partnered with Previsant to enhance 
-            their risk management and compliance programs.
+            Strategic consulting & as-a-service solutions adding value across sectors, 
+            from InsurTech startups to Fortune 100 firms.
           </p>
         </motion.div>
 
@@ -75,25 +87,34 @@ const Testimonials = () => {
                   <CardContent className="p-0">
                     <Quote className="w-12 h-12 text-primary/20 mb-6" />
                     
-                    <p className="text-lg md:text-xl text-gray-700 mb-8 italic">
+                    <p className="text-lg md:text-xl text-gray-700 mb-6 italic">
                       "{testimonials[currentIndex].content}"
                     </p>
 
+                    {testimonials[currentIndex].metrics && (
+                      <div className="flex flex-wrap gap-4 justify-center mb-8">
+                        {testimonials[currentIndex].metrics.map((metric, idx) => (
+                          <div key={idx} className="bg-primary/10 px-4 py-2 rounded-lg">
+                            <span className="text-sm font-semibold text-primary">{metric}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-4">
-                        <img
-                          src={testimonials[currentIndex].image}
-                          alt={testimonials[currentIndex].name}
-                          className="w-16 h-16 rounded-full bg-gray-200"
-                        />
+                        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                          <img
+                            src={testimonials[currentIndex].image}
+                            alt={testimonials[currentIndex].name}
+                            className="w-12 h-12"
+                          />
+                        </div>
                         <div>
                           <h4 className="font-semibold text-gray-900">
-                            {testimonials[currentIndex].name}
+                            {testimonials[currentIndex].title}
                           </h4>
                           <p className="text-sm text-gray-600">
-                            {testimonials[currentIndex].title}
-                          </p>
-                          <p className="text-sm text-gray-500">
                             {testimonials[currentIndex].company}
                           </p>
                         </div>

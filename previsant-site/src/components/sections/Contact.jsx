@@ -40,22 +40,22 @@ const Contact = () => {
     {
       icon: <Mail className="w-5 h-5" />,
       title: 'Email',
-      content: 'contact@previsant.com'
+      content: 'info@previsant.com'
     },
     {
       icon: <Phone className="w-5 h-5" />,
-      title: 'Phone',
-      content: '+1 (555) 123-4567'
+      title: 'Connect',
+      content: 'Schedule a consultation'
     },
     {
       icon: <MapPin className="w-5 h-5" />,
-      title: 'Office',
-      content: '123 Business Ave, Suite 100, New York, NY 10001'
+      title: 'Coverage',
+      content: 'Serving clients nationwide with remote and on-site support'
     },
     {
       icon: <Clock className="w-5 h-5" />,
-      title: 'Hours',
-      content: 'Monday - Friday, 9:00 AM - 6:00 PM EST'
+      title: 'Availability',
+      content: 'Flexible scheduling to meet your business needs'
     }
   ]
 
@@ -70,11 +70,11 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Get in Touch
+            Collaborate & Consult
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to enhance your risk management and compliance programs? 
-            Let's discuss how Previsant can help your organization.
+            Ready to transform your data & analytics capabilities? 
+            Let's discuss how Previsant can enable your organization's journey from strategy to action.
           </p>
         </motion.div>
 
