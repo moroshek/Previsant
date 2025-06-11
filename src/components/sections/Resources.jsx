@@ -281,6 +281,10 @@ const Resources = () => {
                         variant="outline" 
                         size="icon"
                         className="border-2 hover:bg-gray-50"
+                        onClick={() => {
+                          // For now, redirect to the same page with a download parameter
+                          window.open(resource.link + '?download=pdf', '_blank')
+                        }}
                       >
                         <Download className="w-4 h-4" />
                       </Button>
@@ -315,6 +319,7 @@ const Resources = () => {
                   size="lg" 
                   variant="secondary"
                   className="px-8 py-6 text-lg shadow-lg hover:shadow-xl hover-lift"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Request Custom Analysis
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -323,6 +328,7 @@ const Resources = () => {
                   size="lg" 
                   variant="outline"
                   className="px-8 py-6 text-lg bg-white/10 border-white hover:bg-white/20 text-white hover-lift"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Schedule Discussion
                 </Button>

@@ -92,7 +92,11 @@ const Industries = () => {
                   <div className="bg-primary/5 rounded-lg p-4 mb-6">
                     <p className="text-sm font-medium text-gray-800">{industry.stats}</p>
                   </div>
-                  <Button variant="outline" className="w-full group">
+                  <Button 
+                    variant="outline" 
+                    className="w-full group"
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
                     Explore {industry.title} Solutions
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -119,11 +123,18 @@ const Industries = () => {
               Let's discuss how our solutions can drive measurable impact for your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg">
+              <Button 
+                size="lg"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Schedule Industry Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => document.getElementById('insights')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Download Industry Insights
               </Button>
             </div>

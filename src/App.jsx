@@ -26,6 +26,8 @@ const PaymentIntegritySolution = lazy(() => import('./pages/resources/PaymentInt
 const PaymentIntegrityPerspective = lazy(() => import('./pages/resources/PaymentIntegrityPerspective'))
 const FraudDiscoveryCaseStudy = lazy(() => import('./pages/resources/FraudDiscoveryCaseStudy'))
 const SecureAuditableAI = lazy(() => import('./pages/resources/SecureAuditableAI'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const TermsOfService = lazy(() => import('./pages/TermsOfService'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 // Home page component - Simplified
@@ -125,6 +127,8 @@ function App() {
         <Route path="/insights/payment-integrity-perspective" element={<Suspense fallback={<LoadingSpinner />}><PaymentIntegrityPerspective /></Suspense>} />
         <Route path="/insights/fraud-discovery-case-study" element={<Suspense fallback={<LoadingSpinner />}><FraudDiscoveryCaseStudy /></Suspense>} />
         <Route path="/insights/secure-auditable-ai" element={<Suspense fallback={<LoadingSpinner />}><SecureAuditableAI /></Suspense>} />
+        <Route path="/privacy-policy" element={<Suspense fallback={<LoadingSpinner />}><PrivacyPolicy /></Suspense>} />
+        <Route path="/terms-of-service" element={<Suspense fallback={<LoadingSpinner />}><TermsOfService /></Suspense>} />
         <Route path="*" element={<Suspense fallback={<LoadingSpinner />}><NotFound /></Suspense>} />
       </Routes>
     </div>

@@ -56,11 +56,20 @@ const Footer = () => {
               <h4 className="text-sm font-semibold uppercase tracking-wider">
                 Subscribe to Our Newsletter
               </h4>
-              <form className="flex space-x-2">
+              <form className="flex space-x-2" onSubmit={(e) => {
+                e.preventDefault()
+                const email = e.target.email.value
+                if (email) {
+                  alert('Thank you for subscribing! We\'ll keep you updated with our latest insights.')
+                  e.target.reset()
+                }
+              }}>
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
                   className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                  required
                 />
                 <Button type="submit">
                   <Mail className="w-4 h-4" />
@@ -143,8 +152,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Previsant LLC. All rights reserved. | 
-              <a href="/privacy-policy" className="hover:text-white ml-2">Privacy Policy</a> | 
-              <a href="/terms-of-service" className="hover:text-white ml-2">Terms of Service</a>
+              <Link to="/privacy-policy" className="hover:text-white ml-2">Privacy Policy</Link> | 
+              <Link to="/terms-of-service" className="hover:text-white ml-2">Terms of Service</Link>
             </div>
             
             <div className="flex space-x-4">
