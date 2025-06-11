@@ -1,5 +1,4 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 
 const SEO = ({ 
   title = 'Previsant - Data & Analytics Consulting', 
@@ -13,8 +12,9 @@ const SEO = ({
 }) => {
   const siteTitle = title.includes('Previsant') ? title : `${title} | Previsant`
   
+  // React 19 native metadata support - these elements will be hoisted to <head>
   return (
-    <Helmet>
+    <>
       {/* Basic Meta Tags */}
       <title>{siteTitle}</title>
       <meta name="description" content={description} />
@@ -48,7 +48,7 @@ const SEO = ({
       {/* Performance */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-    </Helmet>
+    </>
   )
 }
 
