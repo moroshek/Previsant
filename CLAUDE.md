@@ -1,6 +1,6 @@
 # CLAUDE.md - Project Status and Development Notes
 
-## Current Project Status (Updated: January 2025)
+## Current Project Status (Updated: June 2025)
 
 ### Overview
 The Previsant website migration and optimization project has been successfully completed. The site has been transformed from a legacy Wix-based platform to a modern, high-performance React application with significant improvements in performance, accessibility, and user experience.
@@ -116,7 +116,7 @@ The Previsant website migration and optimization project has been successfully c
 ### Contact for Technical Queries
 For any technical questions or issues, please refer to the README.md file or contact the development team.
 
-### Most Recent Updates (January 2025)
+### Most Recent Updates (June 2025)
 
 #### Comprehensive Site Audit & Fixes
 - **Mobile Responsiveness**: Complete overhaul of responsive design
@@ -145,4 +145,4 @@ For any technical questions or issues, please refer to the README.md file or con
 
 ---
 
-Last updated: January 2025
+Last updated: June 2025

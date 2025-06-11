@@ -10,10 +10,8 @@ const Hero = () => {
     { icon: Sparkles, text: 'Risk & Compliance Solutions' }
   ]
 
-  const tagline = ['Strategy', 'Data', 'Insight', 'Action']
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
       {/* Animated gradient background */}
       <div className="absolute inset-0 gradient-bg-animated" />
       
@@ -44,39 +42,6 @@ const Hero = () => {
 
       <div className="container-responsive relative z-10">
         <div className="max-w-6xl mx-auto text-center">
-          {/* Tagline */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-12"
-          >
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-6 mb-8">
-              {tagline.map((word, index) => (
-                <React.Fragment key={word}>
-                  <motion.span
-                    initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1, type: "spring" }}
-                    className="text-xl md:text-2xl font-bold text-gradient-primary uppercase tracking-wider"
-                  >
-                    {word}
-                  </motion.span>
-                  {index < tagline.length - 1 && (
-                    <motion.span 
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 0.3, scale: 1 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                      className="text-primary/30 hidden md:inline"
-                    >
-                      •
-                    </motion.span>
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
-          </motion.div>
-
           {/* Main heading */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -121,7 +86,7 @@ const Hero = () => {
               size="lg" 
               variant="outline" 
               className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-5 hover-lift border-2 hover:bg-gray-50 w-full sm:w-auto"
-              onClick={() => window.location.href = '/solutions'}
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Explore Our Solutions
             </Button>

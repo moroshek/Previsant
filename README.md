@@ -125,7 +125,7 @@ npm run lint
 npm run dev
 ```
 
-## Recent Updates (January 2025)
+## Recent Updates (June 2025)
 
 - ✅ Successfully migrated from Wix to React
 - ✅ Deployed to Netlify with automatic CI/CD

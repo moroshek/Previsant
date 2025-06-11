@@ -216,6 +216,7 @@ const Services = () => {
                     <Button 
                       variant="ghost" 
                       className="w-full group/btn hover:bg-primary hover:text-white transition-all duration-300"
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                       <span>Explore Solution</span>
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -298,6 +299,7 @@ const Services = () => {
                     <Button 
                       variant="ghost" 
                       className="w-full group/btn hover:bg-primary hover:text-white transition-all duration-300"
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                       <span>Learn More</span>
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -321,6 +323,7 @@ const Services = () => {
             <Button 
               size="lg" 
               className="px-8 py-6 text-lg bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 shadow-xl hover:shadow-2xl hover-lift"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Schedule a Consultation
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -329,6 +332,7 @@ const Services = () => {
               size="lg" 
               variant="outline"
               className="px-8 py-6 text-lg border-2 hover-lift"
+              onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
             >
               View Case Studies
             </Button>

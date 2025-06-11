@@ -229,7 +229,10 @@ const Contact = () => {
                 <p className="mb-4">
                   Our team is available for urgent compliance and risk management matters.
                 </p>
-                <Button variant="secondary">
+                <Button 
+                  variant="secondary"
+                  onClick={() => window.open('mailto:info@previsant.com?subject=Urgent%20Consultation%20Request', '_blank')}
+                >
                   Schedule Emergency Consultation
                 </Button>
               </CardContent>

@@ -141,6 +141,7 @@ const Navigation = () => {
               >
                 <Button 
                   className="bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 shadow-md hover:shadow-lg transition-all duration-300"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Get a Consultation
                   <ChevronRight className="ml-1 h-4 w-4" />
