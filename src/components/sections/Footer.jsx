@@ -28,9 +28,9 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { icon: <Linkedin className="w-5 h-5" />, href: '#', name: 'LinkedIn' },
-    { icon: <Twitter className="w-5 h-5" />, href: '#', name: 'Twitter' },
-    { icon: <Facebook className="w-5 h-5" />, href: '#', name: 'Facebook' }
+    { icon: <Linkedin className="w-5 h-5" />, href: 'https://linkedin.com/company/previsant', name: 'LinkedIn' },
+    { icon: <Twitter className="w-5 h-5" />, href: 'https://twitter.com/previsant', name: 'Twitter' },
+    { icon: <Facebook className="w-5 h-5" />, href: 'https://facebook.com/previsant', name: 'Facebook' }
   ]
 
   return (
@@ -143,8 +143,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Previsant LLC. All rights reserved. | 
-              <a href="#" className="hover:text-white ml-2">Privacy Policy</a> | 
-              <a href="#" className="hover:text-white ml-2">Terms of Service</a>
+              <a href="/privacy-policy" className="hover:text-white ml-2">Privacy Policy</a> | 
+              <a href="/terms-of-service" className="hover:text-white ml-2">Terms of Service</a>
             </div>
             
             <div className="flex space-x-4">

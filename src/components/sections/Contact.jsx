@@ -102,7 +102,7 @@ const Contact = () => {
                       <Label htmlFor="name">Name *</Label>
                       <Input
                         id="name"
-                        placeholder="John Doe"
+                        placeholder="Your full name"
                         {...register('name')}
                         className={errors.name ? 'border-red-500' : ''}
                       />
@@ -116,7 +116,7 @@ const Contact = () => {
                       <Input
                         id="email"
                         type="email"
-                        placeholder="john@company.com"
+                        placeholder="your.email@company.com"
                         {...register('email')}
                         className={errors.email ? 'border-red-500' : ''}
                       />
@@ -131,7 +131,7 @@ const Contact = () => {
                       <Label htmlFor="company">Company *</Label>
                       <Input
                         id="company"
-                        placeholder="Acme Corp"
+                        placeholder="Your company name"
                         {...register('company')}
                         className={errors.company ? 'border-red-500' : ''}
                       />
@@ -145,7 +145,7 @@ const Contact = () => {
                       <Input
                         id="phone"
                         type="tel"
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="Your phone number (optional)"
                         {...register('phone')}
                       />
                     </div>
