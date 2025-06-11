@@ -59,7 +59,7 @@ const About = () => {
             <Sparkles className="w-4 h-4" />
             About Previsant
           </motion.span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
             Transforming Data into
             <span className="block gradient-text">Strategic Advantage</span>
           </h2>
@@ -166,7 +166,7 @@ const About = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
               {values.map((value, index) => (
                 <motion.div
                   key={index}

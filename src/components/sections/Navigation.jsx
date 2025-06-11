@@ -80,8 +80,8 @@ const Navigation = () => {
               >
                 <img 
                   src="/logo.svg" 
-                  alt="Previsάnt Insights Logo" 
-                  className="h-8 md:h-10 w-auto"
+                  alt="Previsάnt Insights - Data & Analytics Consulting" 
+                  className="h-7 sm:h-8 md:h-10 w-auto"
                 />
               </Link>
             </motion.div>
@@ -281,11 +281,14 @@ const Navigation = () => {
                   className="mt-8"
                 >
                   <Button 
-                    className="w-full py-6 text-lg bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 shadow-lg"
-                    onClick={() => setIsOpen(false)}
+                    className="w-full py-4 text-base bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 shadow-lg"
+                    onClick={() => {
+                      setIsOpen(false)
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                    }}
                   >
                     Get a Consultation
-                    <ChevronRight className="ml-2 h-5 w-5" />
+                    <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </motion.div>
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -19,6 +19,7 @@ const formSchema = z.object({
 })
 
 const Contact = () => {
+  const [submitSuccess, setSubmitSuccess] = useState(false)
   const {
     register,
     handleSubmit,
@@ -33,7 +34,9 @@ const Contact = () => {
     await new Promise(resolve => setTimeout(resolve, 2000))
     console.log('Form submitted:', data)
     reset()
-    alert('Thank you for your inquiry! We\'ll be in touch soon.')
+    setSubmitSuccess(true)
+    // Reset success message after 5 seconds
+    setTimeout(() => setSubmitSuccess(false), 5000)
   }
 
   const contactInfo = [
@@ -162,9 +165,26 @@ const Contact = () => {
                     )}
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 text-white py-4" 
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
+                  
+                  {submitSuccess && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg"
+                    >
+                      <p className="text-green-800 text-center font-medium">
+                        Thank you for your inquiry! We'll be in touch within 24 hours.
+                      </p>
+                    </motion.div>
+                  )}
                 </form>
               </CardContent>
             </Card>

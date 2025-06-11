@@ -82,7 +82,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight"
           >
             Enabling{' '}
             <span className="gradient-text">Data & Analytics</span>
@@ -95,7 +95,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
           >
             From vision and strategy through innovation, enablement and ongoing mentoring. 
             Our <span className="font-semibold text-gray-800">business outcome-driven approach</span> accelerates 
@@ -111,7 +111,7 @@ const Hero = () => {
           >
             <Button 
               size="lg" 
-              className="text-lg px-8 py-6 hover-lift bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 shadow-lg"
+              className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-5 hover-lift bg-gradient-to-r from-primary to-blue-600 hover:from-primary hover:to-blue-700 shadow-lg w-full sm:w-auto"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get a Consultation
@@ -120,7 +120,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="text-lg px-8 py-6 hover-lift border-2 hover:bg-gray-50"
+              className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-5 hover-lift border-2 hover:bg-gray-50 w-full sm:w-auto"
               onClick={() => window.location.href = '/solutions'}
             >
               Explore Our Solutions

@@ -134,7 +134,7 @@ const Services = () => {
             <Sparkles className="w-4 h-4" />
             Services & Solutions
           </motion.span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
             Transforming Data into
             <span className="block gradient-text">Competitive Advantage</span>
           </h2>

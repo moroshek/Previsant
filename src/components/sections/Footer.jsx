@@ -141,7 +141,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © 2023 Previsant LLC. All rights reserved. | 
+              © {new Date().getFullYear()} Previsant LLC. All rights reserved. | 
               <a href="#" className="hover:text-white ml-2">Privacy Policy</a> | 
               <a href="#" className="hover:text-white ml-2">Terms of Service</a>
             </div>
