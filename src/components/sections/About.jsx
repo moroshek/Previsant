@@ -3,8 +3,21 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Target, Lightbulb, Users, TrendingUp, Sparkles, ChevronRight } from 'lucide-react'
+import useCountAnimation from '@/hooks/useCountAnimation'
 
 const About = () => {
+  // Animated counters for key metrics
+  const yearsExperience = useCountAnimation(30, 2000, 0, 0, '', '+')
+  const clientSuccess = useCountAnimation(95, 2500, 0, 0, '', '%')
+  const valueDelivered = useCountAnimation(40, 2000, 0, 0, '$', 'M+')
+  const industries = useCountAnimation(12, 1500, 0, 0, '', '+')
+  
+  const metrics = [
+    { label: 'Years Experience', value: yearsExperience, highlight: 'Decades of expertise' },
+    { label: 'Client Success Rate', value: clientSuccess, highlight: 'Proven results' },
+    { label: 'Value Delivered', value: valueDelivered, highlight: 'Year over year' },
+    { label: 'Industries Served', value: industries, highlight: 'Cross-sector impact' }
+  ]
   const values = [
     {
       icon: Target,
@@ -147,6 +160,43 @@ const About = () => {
                   </div>
                 </div>
               </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Key Metrics Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-24"
+          >
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {metrics.map((metric, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  ref={metric.value.ref}
+                  className="text-center"
+                >
+                  <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-white to-gray-50">
+                    <CardContent className="p-6 lg:p-8">
+                      <div className="text-3xl lg:text-4xl xl:text-5xl font-bold gradient-text mb-2">
+                        {metric.value.count}
+                      </div>
+                      <div className="text-lg font-semibold text-gray-800 mb-1">
+                        {metric.label}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {metric.highlight}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 

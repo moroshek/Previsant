@@ -2,8 +2,12 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, CheckCircle, BarChart3, Sparkles, Database, Brain } from 'lucide-react'
+import useParallax from '@/hooks/useParallax'
 
 const Hero = () => {
+  const parallaxSlow = useParallax(0.3)
+  const parallaxMedium = useParallax(0.5)
+  const parallaxFast = useParallax(0.7)
   const features = [
     { icon: Database, text: 'Data & Analytics Strategy' },
     { icon: Brain, text: 'AI-Powered Insights Platform' },
@@ -18,26 +22,61 @@ const Hero = () => {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]"></div>
       
-      {/* Animated orbs */}
+      {/* Animated orbs with parallax */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.15, scale: 1 }}
+        animate={{ opacity: 0.15, scale: 1, y: parallaxSlow.y }}
         transition={{ duration: 3, ease: "easeOut" }}
         className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary rounded-full blur-[120px]"
+        style={{ transform: `translateY(${parallaxSlow.y}px)` }}
       />
       
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.12, scale: 1 }}
+        animate={{ opacity: 0.12, scale: 1, y: parallaxMedium.y }}
         transition={{ duration: 3, delay: 0.5, ease: "easeOut" }}
         className="absolute -bottom-40 -left-40 w-[700px] h-[700px] bg-blue-500 rounded-full blur-[120px]"
+        style={{ transform: `translateY(${parallaxMedium.y}px)` }}
       />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.08, scale: 1 }}
+        animate={{ opacity: 0.08, scale: 1, y: parallaxFast.y }}
         transition={{ duration: 3, delay: 1, ease: "easeOut" }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500 rounded-full blur-[100px]"
+        style={{ transform: `translate(-50%, calc(-50% + ${parallaxFast.y}px))` }}
+      />
+      
+      {/* Additional subtle floating elements */}
+      <motion.div
+        animate={{ 
+          y: [0, -20, 0],
+          opacity: [0.05, 0.1, 0.05]
+        }}
+        transition={{ 
+          duration: 8,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut"
+        }}
+        className="absolute top-1/4 right-1/4 w-[200px] h-[200px] bg-gradient-to-br from-primary/20 to-blue-500/20 rounded-full blur-[80px]"
+        style={{ transform: `translateY(${parallaxMedium.y * 0.5}px)` }}
+      />
+      
+      <motion.div
+        animate={{ 
+          y: [0, 30, 0],
+          opacity: [0.03, 0.08, 0.03]
+        }}
+        transition={{ 
+          duration: 10,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+          delay: 2
+        }}
+        className="absolute bottom-1/3 left-1/3 w-[250px] h-[250px] bg-gradient-to-tr from-purple-500/10 to-pink-500/10 rounded-full blur-[100px]"
+        style={{ transform: `translateY(${parallaxSlow.y * 0.7}px)` }}
       />
 
       <div className="container-responsive relative z-10">

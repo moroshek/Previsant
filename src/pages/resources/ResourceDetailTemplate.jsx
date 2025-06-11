@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -7,6 +7,8 @@ import Navigation from '@/components/sections/Navigation'
 import Footer from '@/components/sections/Footer'
 import Breadcrumb from '@/components/ui/breadcrumb'
 import RelatedContent from '@/components/ui/related-content'
+import { SkeletonResourcePage } from '@/components/ui/skeleton'
+import ResourceProgress from '@/components/ui/resource-progress'
 import { handlePDFDownload, trackDownload } from '@/utils/downloadHandler'
 import { updateMetaTags, addBreadcrumbSchema } from '@/utils/seo'
 
@@ -22,11 +24,30 @@ const ResourceDetailTemplate = ({
   highlights,
   keyTakeaways
 }) => {
+  const [isLoading, setIsLoading] = useState(true)
+  
+  // Determine content length based on read time
+  const getContentLength = () => {
+    const minutes = parseInt(readTime)
+    if (minutes <= 5) return 'short'
+    if (minutes <= 15) return 'medium'
+    return 'long'
+  }
+  
   const breadcrumbItems = [
     { label: 'Resources', href: '/#resources' },
     { label: category.charAt(0).toUpperCase() + category.slice(1), href: `/#resources?category=${category}` },
     { label: title }
   ]
+  
+  useEffect(() => {
+    // Simulate content loading
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 800)
+    
+    return () => clearTimeout(timer)
+  }, [])
   
   useEffect(() => {
     // Update SEO meta tags
@@ -50,6 +71,7 @@ const ResourceDetailTemplate = ({
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <ResourceProgress contentLength={getContentLength()} />
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 relative overflow-hidden">
@@ -152,6 +174,10 @@ const ResourceDetailTemplate = ({
             >
               <Card className="border-0 shadow-lg">
                 <CardContent className="p-8 md:p-12">
+                  {isLoading ? (
+                    <SkeletonResourcePage />
+                  ) : (
+                    <>
                   {/* Highlights */}
                   {highlights && highlights.length > 0 && (
                     <div className="mb-10">
@@ -194,6 +220,8 @@ const ResourceDetailTemplate = ({
                         ))}
                       </ul>
                     </div>
+                  )}
+                    </>
                   )}
                 </CardContent>
               </Card>

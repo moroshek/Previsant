@@ -4,12 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import useSmartSticky from '@/hooks/useSmartSticky'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const location = useLocation()
+  const { isVisible, isSticky } = useSmartSticky()
 
   // For resource pages, link back to homepage sections
   const isResourcePage = location.pathname.includes('/resources/')
@@ -24,8 +25,6 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-      
       // Update active section based on scroll position
       const sections = navItems.map(item => item.href.substring(1))
       const currentSection = sections.find(section => {
@@ -60,9 +59,10 @@ const Navigation = () => {
       <nav 
         className={cn(
           "fixed top-0 w-full z-50 transition-all duration-300",
-          scrolled 
+          isSticky 
             ? "bg-white/95 backdrop-blur-md shadow-lg" 
-            : "bg-white/80 backdrop-blur-sm"
+            : "bg-white/80 backdrop-blur-sm",
+          isVisible ? "translate-y-0" : "-translate-y-full"
         )}
       >
         <div className="container-responsive">

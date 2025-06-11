@@ -114,9 +114,40 @@
     100% { background-position: 0% 50%; }
   }
   
-  /* Glass morphism effect */
+  /* Enhanced glass morphism effects */
   .glass {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20;
+    @apply bg-white/60 backdrop-blur-xl border border-white/30 shadow-lg;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.5) 100%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  }
+  
+  .glass-dark {
+    @apply bg-gray-900/60 backdrop-blur-xl border border-gray-700/30 shadow-2xl;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.7) 0%, rgba(17, 24, 39, 0.5) 100%);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  .glass-subtle {
+    @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-md;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg border border-white/40 shadow-xl;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    box-shadow: 
+      0 8px 32px 0 rgba(31, 38, 135, 0.12),
+      inset 0 2px 4px 0 rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Glass hover effects */
+  .glass-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .glass-hover:hover {
+    @apply bg-white/80 border-white/40 shadow-2xl;
+    transform: translateY(-2px);
   }
   
   /* Hover lift effect */
@@ -137,6 +168,36 @@
   /* Card hover effects */
   .card-hover {
     @apply transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
+  }
+  
+  /* Shine effect for cards */
+  .card-shine {
+    @apply relative overflow-hidden;
+  }
+  
+  .card-shine::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.7) 50%,
+      transparent 60%
+    );
+    animation: shine 0.8s ease-out;
+  }
+  
+  .card-shine:hover::before {
+    @apply opacity-100;
+  }
+  
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(30deg);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(30deg);
+    }
   }
   
   /* Text gradient animations */
@@ -180,6 +241,20 @@
       transform: scale(1);
       opacity: 1;
     }
+  }
+  
+  /* Skeleton loading animation */
+  @keyframes skeleton {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  .animate-skeleton {
+    animation: skeleton 2s ease-in-out infinite;
   }
   
   /* Mobile menu animation */
