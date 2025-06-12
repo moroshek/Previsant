@@ -1,0 +1,24 @@
+/* TEAM */
+Founder & CEO: Doug Ramsey
+LinkedIn: https://www.linkedin.com/in/doug-ramsey-3874291/
+
+Founding Partner: Janna Hart
+LinkedIn: https://www.linkedin.com/in/janna-hart-90a3b513/
+
+Founding Partner: Brian Ng
+LinkedIn: https://www.linkedin.com/in/brian-cp-ng/
+
+Co-Founder & Principal: Neville Moses
+LinkedIn: https://www.linkedin.com/in/nevillemoses/
+
+Founding Partner: Satya Sachdeva
+LinkedIn: https://www.linkedin.com/in/satya-sachdeva-a2b2502/
+
+/* THANKS */
+Our clients and partners who trust us with their data & analytics journey.
+
+/* SITE */
+Last update: 2025/06/11
+Technologies: React, Vite, Tailwind CSS, Framer Motion
+Standards: HTML5, CSS3, ES6+
+Software: VS Code, Git

@@ -459,9 +459,9 @@ const About = () => {
                     size="lg" 
                     variant="outline"
                     className="px-8 py-6 text-lg bg-white/10 border-white hover:bg-white/20 text-white hover-lift"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    Learn More About Us
+                    Explore Our Services
                   </Button>
                 </div>
               </CardContent>

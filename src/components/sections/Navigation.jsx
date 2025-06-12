@@ -80,7 +80,7 @@ const Navigation = () => {
               >
                 <img 
                   src="/logo.svg" 
-                  alt="Previsάnt Insights - Data & Analytics Consulting" 
+                  alt="Previsant logo - Return to homepage" 
                   className="h-7 sm:h-8 md:h-10 w-auto"
                 />
               </Link>
@@ -225,7 +225,7 @@ const Navigation = () => {
                 <div className="flex justify-between items-center mb-8">
                   <img 
                     src="/logo.svg" 
-                    alt="Previsάnt Insights Logo" 
+                    alt="Previsant logo" 
                     className="h-8 w-auto"
                   />
                   <button

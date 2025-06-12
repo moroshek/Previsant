@@ -1,0 +1,29 @@
+{
+  "name": "Previsant - Data & Analytics Consulting",
+  "short_name": "Previsant",
+  "description": "Transform your data into strategic advantage with Previsant's AI-powered analytics and expert consulting services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#003A96",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "en-US"
+}

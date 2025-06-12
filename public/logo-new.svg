@@ -1,0 +1,31 @@
+<svg width="200" height="130" viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#003A96;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066CC;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Previsant Text -->
+  <text x="0" y="40" font-family="Raleway, sans-serif" font-size="36" font-weight="700" fill="#003A96">
+    Previs<tspan font-weight="800">ά</tspan>nt
+  </text>
+  
+  <!-- Insights Text -->
+  <text x="0" y="65" font-family="Raleway, sans-serif" font-size="14" font-weight="500" fill="#666" letter-spacing="2px">
+    INSIGHTS
+  </text>
+  
+  <!-- Decorative element -->
+  <rect x="0" y="75" width="60" height="3" fill="url(#logoGradient)" />
+  
+  <!-- Tagline -->
+  <text x="0" y="95" font-family="Raleway, sans-serif" font-size="10" font-weight="400" fill="#666">
+    Strategy • Data • Insight • Action
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="0" y="110" font-family="Raleway, sans-serif" font-size="9" font-weight="500" fill="#003A96">
+    Enabling Data &amp; Analytics as a Differentiator
+  </text>
+</svg>
